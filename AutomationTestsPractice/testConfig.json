@@ -1,3 +1,4 @@
 {
-  "appUrl": "http://automationpractice.com/index.php"
+  "appUrl": "http://automationpractice.com/index.php",
+  "defaultWait": 5
 }

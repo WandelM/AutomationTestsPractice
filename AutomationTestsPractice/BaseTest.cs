@@ -18,7 +18,7 @@ namespace AutomationTestsPractice
             ConfigurationBuilder builder = new ConfigurationBuilder();
             Configuration = builder.AddJsonFile("testConfig.json").Build();
            
-            var driver = DriverFactory.GetDriverInstance(Browsers.chrome, Configuration["appUrl"]);
+            var driver = DriverFactory.GetDriverInstance(Browsers.chrome, Configuration["appUrl"], int.Parse(Configuration["defaultWait"]));
             PageFactory = new PageFactory(driver);
         }
 

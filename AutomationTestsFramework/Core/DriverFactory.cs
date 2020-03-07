@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using System;
 
 namespace AutomationTestsFramework.Core
 {
@@ -25,7 +26,7 @@ namespace AutomationTestsFramework.Core
         /// </summary>
         /// <param name="browser">Browser that has to be opened</param>
         /// <returns>Web driver instance</returns>
-        public static IWebDriver GetDriverInstance(Browsers browser)
+        public static IWebDriver GetDriverInstance(Browsers browser, int waitTime)
         {
             IWebDriver driver;
 
@@ -45,6 +46,8 @@ namespace AutomationTestsFramework.Core
                     break;
             }
 
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(waitTime);
+
             return driver;
         }
 
@@ -54,9 +57,9 @@ namespace AutomationTestsFramework.Core
         /// <param name="browser">Browser that has to be opened</param>
         /// <param name="url">Url of web application</param>
         /// <returns>New web driver instance</returns>
-        public static IWebDriver GetDriverInstance(Browsers browser, string url)
+        public static IWebDriver GetDriverInstance(Browsers browser, string url, int waitTime)
         {
-            var driverInstance = GetDriverInstance(browser);
+            var driverInstance = GetDriverInstance(browser, waitTime);
 
             driverInstance.Navigate().GoToUrl(url);
 
