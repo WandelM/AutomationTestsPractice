@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
+using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,7 +18,7 @@ namespace AutomationTestsFramework.Extensions
             var elementTag = textboxElement.TagName;
             var elementTypeAttribiute = textboxElement.GetAttribute("type");
 
-            if (elementTag == "input" && elementTypeAttribiute == "text")
+            if (elementTag == "input" && (elementTypeAttribiute == "text" || elementTypeAttribiute == "password"))
             {
                 if (!string.IsNullOrEmpty(textboxElement.Text))
                 {
