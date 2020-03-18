@@ -16,6 +16,9 @@ namespace AutomationTestsPractice
             PageFactory.GetPage<MainPage>().TopBar.SignUpPageOpen();
             Assert.That(PageFactory.GetPage<AuthenticationPage>().IsAt(), Is.True);
             PageFactory.GetPage<AuthenticationPage>().CreateAccount(DataGenerator.GenerateEmail(5));
+            PageFactory.GetPage<RegistrationPage>().TitleChoose(Titles.Mr);
+            PageFactory.GetPage<RegistrationPage>().InsertFirstName("Alan");
+            PageFactory.GetPage<RegistrationPage>().InsertLastName("Anderson");
             System.Threading.Thread.Sleep(1000);
         }
     }
