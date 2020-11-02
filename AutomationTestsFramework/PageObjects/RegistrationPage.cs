@@ -20,6 +20,12 @@ namespace AutomationTestsFramework.PageObjects
         private IWebElement YearDropDown => Driver.FindElement(By.XPath("//select[@id='years']"));
         private IWebElement NewsletterCheckBox => Driver.FindElement(By.XPath("//input[@id='newsletter']"));
         private IWebElement SpecialOffersCheckBox => Driver.FindElement(By.XPath("//input[@id='optin']"));
+        private IWebElement FormHeading => Driver.FindElement(By.XPath("//h1[text() = 'Create an account']"));
+
+        public bool IsAt()
+        {
+            return FormHeading.Displayed;
+        }
 
         public void TitleChoose(Titles title)
         {

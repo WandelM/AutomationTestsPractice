@@ -13,11 +13,13 @@ namespace AutomationTestsPractice
         [Test]
         public void test()
         {
+            var email = DataGenerator.GenerateEmail(5);
+
             PageFactory.GetPage<MainPage>().TopBar.SignUpPageOpen();
             Logger.Log("Sign up page opened");
             Assert.That(PageFactory.GetPage<AuthenticationPage>().IsAt(), Is.True);
             PageFactory.GetPage<AuthenticationPage>().CreateAccount(DataGenerator.GenerateEmail(5));
-            Logger.Log("Email inserted");
+            Logger.Log($"Email inserted: {email}");
             PageFactory.GetPage<RegistrationPage>().TitleChoose(Titles.Mr);
             Logger.Log("Title chosen");
             PageFactory.GetPage<RegistrationPage>().InsertFirstName("Alan");
